@@ -5,10 +5,7 @@ exec 1>&1
 # Redirect STDERR to STDERR (outside script)
 exec 2>&2
 
-CWD=$(dirname $(realpath $0))
-
-APPDIR=$(realpath $CWD/../../app)
-GITDIR=$(realpath $CWD/../../app.git)
+APPDIR=$1
 
 echo "APP DIR: $APPDIR"
 echo "Moving to work tree directory: $APPDIR"
@@ -19,6 +16,6 @@ cd $APPDIR
 set -o verbose
 
 # Maintenance tasks
-yarn install --save --verbose
-yarn build
+yarn install --save --verbose --mutex file
+yarn build --mutex file
 
