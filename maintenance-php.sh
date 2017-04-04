@@ -6,17 +6,10 @@ exec 1>&1
 exec 2>&2
 
 CWD=$(dirname $(realpath $0))
-APPDIR=$1
-URL=$2
-PHP_FPM_HOST=$3
-PHP_FPM_PORT=$4
+PHP_FPM_HOST=$1
+PHP_FPM_PORT=$2
 
-echo "APP DIR: $APPDIR"
-echo "Moving to work tree directory: $APPDIR"
-
-cd $APPDIR
-
-echo "MAITENANCE TASKS"
+echo "PHP MAITENANCE TASKS"
 
 # Echoes all commands before executing.
 set -o verbose
